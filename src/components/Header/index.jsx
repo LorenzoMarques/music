@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
-import { HeaderContainer, Img, User, Nav, Div, NavToggle, Line } from "./style";
+import { Link } from "react-router-dom";
+import {
+  HeaderContainer,
+  Img,
+  User,
+  Nav,
+  Div,
+  NavToggle,
+  Line,
+  Unauthorized,
+} from "./style";
 import {
   MdViewModule,
   MdNotificationsNone,
@@ -12,11 +22,14 @@ import {
   RiCompassDiscoverLine,
   RiDashboard3Line,
   RiMessage3Line,
+  RiRegisteredLine,
+  RiLoginBoxLine,
 } from "react-icons/ri";
 
 const Header = () => {
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [auth, setAuth] = useState(true);
 
   const username = "Lorenzo Marques";
   const userImage =
@@ -27,7 +40,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 700px)");
+    const mediaQuery = window.matchMedia("(max-width: 800px)");
     mediaQuery.addEventListener("change", handleMediaQueryChange);
     handleMediaQueryChange(mediaQuery);
 
@@ -48,13 +61,16 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <User>
-        <Img src={userImage} alt="user" />
-        <div>
-          <h3>{username}</h3>
-          <button>Edit profile</button>
-        </div>
-      </User>
+      {auth && (
+        <User>
+          <Img src={userImage} alt="user" />
+          <div>
+            <h3>{username}</h3>
+            <button>Edit profile</button>
+          </div>
+        </User>
+      )}
+
       {isSmallScreen && (
         <NavToggle onClick={toggleNav}>
           <MdLegendToggle color="white" size="35" />
@@ -63,39 +79,55 @@ const Header = () => {
       {isNavVisible && (
         <Nav>
           {!isSmallScreen && <Line></Line>}
-          <div className="link">
-            <MdViewModule size="25" color="white" />
-            <a href="#">OverView</a>
-          </div>
-          <div className="link">
-            <TbNews size="25" color="white" />
-            <a href="#">News</a>
-          </div>
-          <div className="link">
-            <RiPlayListFill size="25" color="white" />
-            <a href="#">PlayList</a>
-          </div>{" "}
-          <div className="link">
-            <RiCompassDiscoverLine size="25" color="white" />
-            <a href="#">Discover</a>
-          </div>
-          <Div></Div>
-          <div className="link">
-            <RiDashboard3Line size="25" color="white" />
-            <a href="#">Dashboard</a>
-          </div>{" "}
-          <div className="link">
-            <RiMessage3Line size="25" color="white" />
-            <a href="#">Messeges</a>
-          </div>{" "}
-          <div className="link">
-            <MdNotificationsNone size="25" color="white" />
-            <a href="#">Notification</a>
-          </div>{" "}
-          <div className="link">
-            <MdOutlineAccountCircle size="25" color="white" />
-            <a href="#">Account</a>
-          </div>
+          {auth ? (
+            <>
+              <div className="link">
+                <MdViewModule size="25" color="white" />
+                <Link to="/overview">OverView</Link>
+              </div>
+              <div className="link">
+                <TbNews size="25" color="white" />
+                <Link to="/news">News</Link>
+              </div>
+              <div className="link">
+                <RiPlayListFill size="25" color="white" />
+                <Link to="/playlists">PlayList</Link>
+              </div>{" "}
+              <div className="link">
+                <RiCompassDiscoverLine size="25" color="white" />
+                <Link to="/discover">Discover</Link>
+              </div>
+              <Div></Div>
+              <div className="link">
+                <RiDashboard3Line size="25" color="white" />
+                <Link to="/:profile/home">Profile</Link>
+              </div>{" "}
+              <div className="link">
+                <RiMessage3Line size="25" color="white" />
+                <Link to="/messeges">Messeges</Link>
+              </div>{" "}
+              <div className="link">
+                <MdNotificationsNone size="25" color="white" />
+                <Link to="/notifications">Notifications</Link>
+              </div>{" "}
+              <div className="link">
+                <MdOutlineAccountCircle size="25" color="white" />
+                <Link to="/acoount">Account</Link>
+              </div>
+            </>
+          ) : (
+            <Unauthorized>
+              <div className="link">
+                <RiLoginBoxLine size="25" color="white" />
+                <Link to="/">Login</Link>
+              </div>
+
+              <div className="link">
+                <RiRegisteredLine size="25" color="white" />
+                <Link to="/register">Register</Link>
+              </div>
+            </Unauthorized>
+          )}
         </Nav>
       )}
     </HeaderContainer>
