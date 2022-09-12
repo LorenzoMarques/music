@@ -1,5 +1,25 @@
 import styled from "styled-components";
 
+export const HeaderContainer = styled.header`
+  background-color: var(--color-brand1);
+  color: var(--color-grey5);
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  padding: 15px;
+  min-height: 90px;
+
+  z-index: 9999;
+
+  @media (min-width: 800px) {
+    width: 250px;
+    height: 100vh;
+    overflow: auto;
+    left: 0px;
+    top: 0px;
+  }
+`;
+
 export const Img = styled.img`
   width: 60px;
   height: 60px;
@@ -30,19 +50,6 @@ export const User = styled.div`
   }
 `;
 
-export const HeaderContainer = styled.header`
-  background-color: var(--color-brand1);
-  color: var(--color-grey5);
-  position: relative;
-  padding: 15px;
-
-  @media (min-width: 700px) {
-    width: 300px;
-    height: 100vh;
-    overflow: auto;
-  }
-`;
-
 export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
@@ -62,7 +69,7 @@ export const Nav = styled.nav`
     margin-left: 10px;
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 800px) {
     margin-top: 40%;
 
     a {
@@ -98,4 +105,14 @@ export const NavToggle = styled.button`
   top: 25px;
   background-color: var(--color-brand1);
   border: unset;
+`;
+
+export const Unauthorized = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+
+  div {
+    margin-bottom: 25px;
+  }
 `;
