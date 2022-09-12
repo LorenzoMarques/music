@@ -8,10 +8,10 @@ export default createGlobalStyle`
         outline: 0;
     }
     :root {
-        --color-brand1: #371B58;
-        --color-brand2: #4C3575;
-        --color-brand3: #5B4B8A;
-        --color-brand4: #7858A6;
+        --color-brand1: #1A1A2E;
+        --color-brand2: #16213E;
+        --color-brand3: #0F3460;
+        --color-brand4: #E94560;
         --color-grey0: #0B0D0D;
         --color-grey1: #212529;
         --color-grey2: #495057;
@@ -48,10 +48,35 @@ export default createGlobalStyle`
     button {
         cursor: pointer;
     }
+    h3,h2,h1, p, span {
+      color: var(--color-grey5);
+    }
     li {
         list-style: none;
     }
     body {
-        background-color: var(--color-brand4);
+        background-color: var(--color-brand2);
+
+        * {
+  scrollbar-width: 12px;
+  scrollbar-color: var(--color-brand3) var(--color-brand2);
+}
+
+
+*::-webkit-scrollbar {
+  width: 3px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  padding: 2px;
+
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand3);
+}
     }
+
 `;
