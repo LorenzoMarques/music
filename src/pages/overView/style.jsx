@@ -1,68 +1,64 @@
 import styled from "styled-components";
 
-export const Input = styled.input`
-  background-color: transparent;
-  border: unset;
-  color: var(--color-grey5);
-  padding: 5px;
-  width: 100%;
-  margin-left: 10px;
-`;
-
 export const OverViewContainer = styled.div`
+  width: 90%;
+  margin: auto;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-
-  h2 {
-    margin-top: 25px;
-  }
 
   @media (min-width: 800px) {
-    .wrap {
-      align-self: flex-start;
-      margin-left: 330px;
-      width: 50vw;
-      @media (min-width: 800px) {
-        display: flex;
-        width: 55vw;
-        justify-content: space-between;
-      }
+    margin-top: 15px;
+    margin-left: 350px;
+    width: 50vw;
+  }
+`;
 
-      @media (min-width: 980px) {
-        margin-left: 330px;
-        width: 60vw;
-      }
+export const Post = styled.div`
+  width: 100%;
+  background-color: var(--color-brand1);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
 
-      @media (min-width: 1200px) {
-        width: 65vw;
-      }
+  button {
+    color: var(--color-grey5);
+    background-color: transparent;
+    border: unset;
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+
+    :hover {
+      filter: brightness(50%);
     }
   }
 `;
 
-export const InputContainer = styled.div`
-  margin: auto;
-  margin-top: 100px;
-  width: 90vw;
-  background-color: var(--color-brand1);
-  height: 30px;
+export const UserPost = styled.div`
   display: flex;
-  border-radius: 5px;
-  border: 2px solid var(--color-brand1);
-  padding-left: 5px;
+  align-items: center;
+  margin-bottom: 25px;
 
-  @media (min-width: 800px) {
-    margin-left: 330px;
-    margin-top: 20px;
-    width: 50vw;
+  img {
+    width: 50px;
+    margin-right: 25px;
+    border-radius: 50%;
   }
+`;
 
-  @media (min-width: 980px) {
-    width: 60vw;
-  }
+export const PostBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
-  @media (min-width: 1200px) {
-    width: 68vw;
-  }
+export const PostedImage = styled.div`
+  overflow: hidden;
+  max-height: 500px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  border-radius: 10px;
 `;

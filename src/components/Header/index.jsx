@@ -60,7 +60,7 @@ const Header = () => {
   };
 
   return (
-    <HeaderContainer>
+    <HeaderContainer id="5">
       {auth && (
         <User>
           <Img src={userImage} alt="user" />
@@ -100,7 +100,7 @@ const Header = () => {
               <Div></Div>
               <div className="link">
                 <RiDashboard3Line size="25" color="white" />
-                <Link to="/:profile/home">Profile</Link>
+                <Link to="/:profile/albums">Profile</Link>
               </div>{" "}
               <div className="link">
                 <RiMessage3Line size="25" color="white" />
