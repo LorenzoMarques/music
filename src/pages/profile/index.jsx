@@ -20,8 +20,6 @@ const ProfilePage = () => {
 
   const [pathName, setPathName] = useState(window.location.pathname);
 
-  const [height, setHeight] = useState("500px");
-
   return (
     <ProfileContainer>
       <UserContainer>
@@ -82,7 +80,7 @@ const ProfilePage = () => {
       {pathName === `/${window.location.pathname.split("/")[1]}/albums` && (
         <>
           <H2>Albums</H2>
-          <GeneralContainer height={height}>
+          <GeneralContainer>
             {playlist.map((element) => {
               return (
                 <div key={element.id}>
@@ -98,7 +96,7 @@ const ProfilePage = () => {
       {pathName === `/${window.location.pathname.split("/")[1]}/pictures` && (
         <>
           <H2>Pictures</H2>
-          <GeneralContainer height={height}>
+          <GeneralContainer>
             {playlist.map((element) => {
               return (
                 <div key={element.id}>
@@ -114,7 +112,7 @@ const ProfilePage = () => {
       {pathName === `/${window.location.pathname.split("/")[1]}/singles` && (
         <>
           <H2>Singles</H2>
-          <GeneralContainer height={height}>
+          <GeneralContainer>
             {playlist.map((element) => {
               return (
                 <div key={element.id}>
@@ -130,7 +128,7 @@ const ProfilePage = () => {
       {pathName === `/${window.location.pathname.split("/")[1]}/playlists` && (
         <>
           <H2>Playlists</H2>
-          <GeneralContainer height={height}>
+          <GeneralContainer>
             {playlist.map((element) => {
               return (
                 <div key={element.id}>
