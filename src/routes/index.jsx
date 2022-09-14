@@ -4,6 +4,7 @@ import OverView from "../pages/overView";
 import LoginPage from "../pages/login";
 import RegisterPage from "../pages/register";
 import ProfilePage from "../pages/profile";
+import Player from "../pages/player";
 
 const AppRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const AppRoutes = () => {
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/:profile/:route" pa element={<ProfilePage />} />
+      <Route path="/playlists" pa element={<Player />} />
     </Routes>
   );
 };
