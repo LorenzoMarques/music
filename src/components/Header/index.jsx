@@ -86,22 +86,22 @@ const Header = () => {
                 <Link to="/overview">OverView</Link>
               </div>
               <div className="link">
+                <RiPlayListFill size="25" color="white" />
+                <Link to="/player/1">Player</Link>
+              </div>{" "}
+              <div className="link">
+                <RiDashboard3Line size="25" color="white" />
+                <Link to="/profile/songs">Profile</Link>
+              </div>{" "}
+              <Div></Div>
+              <div className="link">
                 <TbNews size="25" color="white" />
                 <Link to="/news">News</Link>
               </div>
               <div className="link">
-                <RiPlayListFill size="25" color="white" />
-                <Link to="/playlists">PlayList</Link>
-              </div>{" "}
-              <div className="link">
                 <RiCompassDiscoverLine size="25" color="white" />
                 <Link to="/discover">Discover</Link>
               </div>
-              <Div></Div>
-              <div className="link">
-                <RiDashboard3Line size="25" color="white" />
-                <Link to="/:profile/albums">Profile</Link>
-              </div>{" "}
               <div className="link">
                 <RiMessage3Line size="25" color="white" />
                 <Link to="/messeges">Messeges</Link>

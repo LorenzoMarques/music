@@ -12,8 +12,8 @@ const AppRoutes = () => {
       <Route path="/overview" element={<OverView />} />
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/:profile/:route" pa element={<ProfilePage />} />
-      <Route path="/playlists" pa element={<Player />} />
+      <Route path="/profile/:route" pa element={<ProfilePage />} />
+      <Route path="/player/:id" pa element={<Player />} />
     </Routes>
   );
 };

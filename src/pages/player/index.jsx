@@ -18,37 +18,62 @@ import {
   BiStopCircle,
 } from "react-icons/bi";
 import { useEffect, useState } from "react";
-
+import { getSong } from "../../utils/importsongs";
+import { useNavigate } from "react-router-dom";
 const Player = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [songDuration, setSongDuration] = useState("0:00");
   const [currentTime, setCurrentTime] = useState("0:00");
   const [width, setWidth] = useState("0%");
+  const navigate = useNavigate();
 
-  const songUrl =
-    "https://upload-capstone-m4-grupo-14.s3.sa-east-1.amazonaws.com/2b81030d8fa4848a986e75c0af32b83e-Cartoon+-+C+U+Again.mp3";
+  const songId = Number(window.location.pathname.split(`/`)[2]);
+
+  const songUrl = getSong(songId);
   const playSong = (id) => {
     const song = window.document.getElementById(id);
-
+    setIsPlaying(true);
     song.play();
-    setIsPlaying(!isPlaying);
+  };
+
+  const changeSong = (str) => {
+    if (songId >= 1 && songId <= 15) {
+      if (str === "previous" && songId === 1) {
+        return;
+      }
+      if (str === "previous") {
+        getSongDuration("10");
+        navigate(`/player/${songId - 1}`);
+      }
+      if (str !== "previous" && songId !== 15) {
+        getSongDuration("10");
+        navigate(`/player/${songId + 1}`);
+      }
+
+      setTimeout(() => {
+        playSong("10");
+      }, "1000");
+    }
   };
 
   const stopSong = (id) => {
     const song = window.document.getElementById(id);
 
     song.pause();
-    setIsPlaying(!isPlaying);
+    setIsPlaying(false);
   };
 
   const getSongDuration = (id) => {
     const song = window.document.getElementById(id);
     const seconds = Math.floor(song.duration);
 
-    const minutes = Math.floor(seconds / 60); // get minutes
+    const minutes = Math.floor(seconds / 60);
     const sec = seconds % 60;
-
-    setSongDuration(`${minutes}:${sec}`);
+    if (sec < 10) {
+      setSongDuration(`${minutes}:0${sec}`);
+    } else {
+      setSongDuration(`${minutes}:${sec}`);
+    }
   };
 
   useEffect(() => {
@@ -61,7 +86,7 @@ const Player = () => {
     const song = window.document.getElementById(id);
     const seconds = Math.floor(song.currentTime);
 
-    const minutes = Math.floor(seconds / 60); // get minutes
+    const minutes = Math.floor(seconds / 60);
     const sec = seconds % 60;
 
     if (sec < 10) {
@@ -71,16 +96,20 @@ const Player = () => {
     }
 
     setWidth(`${(seconds / song.duration) * 100}%`);
-    console.log((seconds / song.duration) * 100);
+    if (currentTime === songDuration) {
+      changeSong();
+    }
   };
 
   return (
     <PlayerContainer>
-      <SongImage></SongImage>
+      <SongImage>
+        <img src={songUrl.img} alt="" />
+      </SongImage>
 
       <SongNameContainer>
-        <h3>Song Name</h3>
-        <span>Artist</span>
+        <h3>{songUrl.name}</h3>
+        <span>{songUrl.artist}</span>
       </SongNameContainer>
 
       <ProgressContainer>
@@ -89,7 +118,7 @@ const Player = () => {
       </ProgressContainer>
       <audio
         id="10"
-        src={songUrl}
+        src={songUrl.song}
         onTimeUpdate={() => getCurrentTime("10")}
       ></audio>
       <TimeContainer>
@@ -98,7 +127,11 @@ const Player = () => {
       </TimeContainer>
 
       <ButtonsContainer>
-        <Arrow>
+        <Arrow
+          onClick={() => {
+            changeSong("previous");
+          }}
+        >
           <BiSkipPreviousCircle size={45} color="white" />
         </Arrow>
 
@@ -112,7 +145,11 @@ const Player = () => {
           </PlayButton>
         )}
 
-        <Arrow>
+        <Arrow
+          onClick={() => {
+            changeSong();
+          }}
+        >
           <BiSkipNextCircle size={45} color="white" />
         </Arrow>
       </ButtonsContainer>

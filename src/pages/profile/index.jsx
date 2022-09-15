@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import StyledButton from "../../components/styledButton";
 import { playlist } from "../../playlist";
+import { songs } from "../../utils/importsongs";
 import {
   GeneralContainer,
   CoverImage,
@@ -11,14 +12,20 @@ import {
   UserContainer,
   H2,
 } from "./style";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
   const userImage =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg";
 
   const coverImage = playlist[0].img;
 
   const [pathName, setPathName] = useState(window.location.pathname);
+
+  const handleClickSong = (id) => {
+    navigate(`/player/${id}`);
+  };
 
   return (
     <ProfileContainer>
@@ -44,14 +51,6 @@ const ProfilePage = () => {
 
       <NavProfile>
         <Link
-          to={`/${window.location.pathname.split("/")[1]}/albums`}
-          onClick={() =>
-            setPathName(`/${window.location.pathname.split("/")[1]}/albums`)
-          }
-        >
-          Albuns
-        </Link>
-        <Link
           to={`/${window.location.pathname.split("/")[1]}/pictures`}
           onClick={() =>
             setPathName(`/${window.location.pathname.split("/")[1]}/pictures`)
@@ -60,38 +59,14 @@ const ProfilePage = () => {
           Pictures
         </Link>
         <Link
-          to={`/${window.location.pathname.split("/")[1]}/singles`}
+          to={`/${window.location.pathname.split("/")[1]}/songs`}
           onClick={() =>
-            setPathName(`/${window.location.pathname.split("/")[1]}/singles`)
+            setPathName(`/${window.location.pathname.split("/")[1]}/songs`)
           }
         >
-          Singles
-        </Link>
-        <Link
-          to={`/${window.location.pathname.split("/")[1]}/playlists`}
-          onClick={() =>
-            setPathName(`/${window.location.pathname.split("/")[1]}/playlists`)
-          }
-        >
-          Playlists
+          Songs
         </Link>
       </NavProfile>
-
-      {pathName === `/${window.location.pathname.split("/")[1]}/albums` && (
-        <>
-          <H2>Albums</H2>
-          <GeneralContainer>
-            {playlist.map((element) => {
-              return (
-                <div key={element.id}>
-                  <img src={element.img} alt="" />
-                  <span>{element.name}</span>
-                </div>
-              );
-            })}
-          </GeneralContainer>
-        </>
-      )}
 
       {pathName === `/${window.location.pathname.split("/")[1]}/pictures` && (
         <>
@@ -109,31 +84,21 @@ const ProfilePage = () => {
         </>
       )}
 
-      {pathName === `/${window.location.pathname.split("/")[1]}/singles` && (
+      {pathName === `/${window.location.pathname.split("/")[1]}/songs` && (
         <>
-          <H2>Singles</H2>
+          <H2>Songs</H2>
           <GeneralContainer>
-            {playlist.map((element) => {
+            {songs.map((element) => {
               return (
-                <div key={element.id}>
-                  <img src={element.img} alt="" />
-                  <span>{element.name}</span>
-                </div>
-              );
-            })}
-          </GeneralContainer>
-        </>
-      )}
-
-      {pathName === `/${window.location.pathname.split("/")[1]}/playlists` && (
-        <>
-          <H2>Playlists</H2>
-          <GeneralContainer>
-            {playlist.map((element) => {
-              return (
-                <div key={element.id}>
-                  <img src={element.img} alt="" />
-                  <span>{element.name}</span>
+                <div
+                  key={element.id}
+                  className={element.id}
+                  onClick={(e) => handleClickSong(e.target.className)}
+                >
+                  <img src={element.img} alt="" className={element.id} />
+                  <div>
+                    <span>{element.name}</span>
+                  </div>
                 </div>
               );
             })}

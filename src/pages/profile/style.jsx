@@ -142,11 +142,22 @@ export const GeneralContainer = styled.div`
     margin-right: 15px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    width: 100px;
+
+    span {
+      font-size: 10px;
+      margin-top: 15px;
+    }
   }
 
   @media (min-width: 800px) {
     width: 70vw;
     margin-left: 250px;
+
+    div {
+      width: unset;
+    }
 
     img {
       width: 250px;

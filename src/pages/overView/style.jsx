@@ -61,4 +61,14 @@ export const PostedImage = styled.div`
   justify-content: center;
   margin-bottom: 25px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  :hover {
+    cursor: pointer;
+  }
+
+  img {
+    max-width: 850px;
+  }
 `;
