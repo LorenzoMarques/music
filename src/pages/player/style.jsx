@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const PlayerContainer = styled.div`
   margin: auto;
-  margin-top: 150px;
-  width: 250px;
+  margin-top: 100px;
+  width: 300px;
+  box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+  padding: 25px;
 `;
 
 export const SongImage = styled.div`

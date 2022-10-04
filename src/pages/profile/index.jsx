@@ -38,7 +38,7 @@ const ProfilePage = () => {
           <h2>Lorenzo Marques</h2>
           <span>1M Fans</span>
         </div>
-        <StyledButton bg_color={"--color-brand3"} bd_color={"--color-brand2"}>
+        <StyledButton bg_color={"--color-brand1"} bd_color={"--color-brand2"}>
           Become a fan
         </StyledButton>
       </UserContainer>

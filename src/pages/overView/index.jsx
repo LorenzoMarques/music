@@ -37,10 +37,7 @@ const OverView = () => {
   return (
     <OverViewContainer>
       {songs.map((element, i) => (
-        <Post
-          className={element.id}
-          onClick={(e) => handleClickSong(e.target.className)}
-        >
+        <Post className={element.id}>
           <UserPost>
             <img
               src={
@@ -58,18 +55,19 @@ const OverView = () => {
               key={i}
               alt={element.img}
               className={element.id}
+              onClick={(e) => handleClickSong(e.target.className)}
             />
           </PostedImage>
 
           <PostBar>
             <button>
-              <BiLike size={25} color="white" /> Like
+              <BiLike size={25} color="gray" /> Like
             </button>
             <button>
-              <BiCommentDetail size={25} color="white" /> Comment
+              <BiCommentDetail size={25} color="gray" /> Comment
             </button>
             <button>
-              <BiShare size={25} color="white" /> Share
+              <BiShare size={25} color="gray" /> Share
             </button>
           </PostBar>
         </Post>

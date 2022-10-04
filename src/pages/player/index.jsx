@@ -132,16 +132,16 @@ const Player = () => {
             changeSong("previous");
           }}
         >
-          <BiSkipPreviousCircle size={45} color="white" />
+          <BiSkipPreviousCircle size={45} color="gray" />
         </Arrow>
 
         {!isPlaying ? (
           <PlayButton onClick={() => playSong("10")}>
-            <BiPlayCircle size={45} color="white" />
+            <BiPlayCircle size={45} color="gray" />
           </PlayButton>
         ) : (
           <PlayButton onClick={() => stopSong("10")}>
-            <BiStopCircle size={45} color="white" />
+            <BiStopCircle size={45} color="gray" />
           </PlayButton>
         )}
 
@@ -150,7 +150,7 @@ const Player = () => {
             changeSong();
           }}
         >
-          <BiSkipNextCircle size={45} color="white" />
+          <BiSkipNextCircle size={45} color="gray" />
         </Arrow>
       </ButtonsContainer>
     </PlayerContainer>

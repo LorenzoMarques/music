@@ -4,7 +4,6 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   @media (min-width: 800px) {
   }
 `;
@@ -15,9 +14,10 @@ export const UserContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: var(--color-brand1);
+  background-color: var(--color-grey7);
   padding-bottom: 25px;
   position: relative;
+  box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
 
   @media (min-width: 800px) {
     margin-top: 0px;
@@ -53,12 +53,13 @@ export const UserContainer = styled.div`
 `;
 
 export const Presentation = styled.div`
-  background-color: var(--color-brand1);
+  background-color: var(--color-grey7);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   width: 100%;
   text-align: center;
   padding-bottom: 15px;
+  box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
 
   h2,
   p {
@@ -66,9 +67,10 @@ export const Presentation = styled.div`
   }
 
   @media (min-width: 800px) {
-    margin-top: 0px;
+    margin-top: 25px;
     width: 70vw;
     margin-left: 250px;
+    padding: 25px;
   }
 `;
 
@@ -99,10 +101,11 @@ export const CoverImage = styled.div`
 export const NavProfile = styled.nav`
   width: 100%;
   display: flex;
-  background-color: var(--color-brand1);
+  background-color: var(--color-grey7);
   margin-top: 25px;
   height: 50px;
   justify-content: space-around;
+  box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
 
   a {
     padding: 15px;
@@ -122,7 +125,7 @@ export const NavProfile = styled.nav`
 `;
 
 export const GeneralContainer = styled.div`
-  background-color: var(--color-brand1);
+  background-color: var(--color-grey7);
   width: 100%;
   height: ${(props) => (props.height ? props.height : "500px")};
   text-align: center;
@@ -132,6 +135,8 @@ export const GeneralContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   margin-bottom: 100px;
+  box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+
   img {
     width: 100px;
     height: 100px;
@@ -169,7 +174,7 @@ export const GeneralContainer = styled.div`
 
 export const H2 = styled.h2`
   width: 100%;
-  background-color: var(--color-brand1);
+  background-color: var(--color-grey7);
   padding: 25px;
   text-align: center;
 

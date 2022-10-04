@@ -16,14 +16,14 @@ export const OverViewContainer = styled.div`
 
 export const Post = styled.div`
   width: 100%;
-  background-color: var(--color-brand1);
+  background-color: var(--color-grey7);
   margin-bottom: 25px;
   border-radius: 10px;
   padding: 25px;
   box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
 
   button {
-    color: var(--color-grey5);
+    color: var(--color-grey2);
     background-color: transparent;
     border: unset;
     font-size: 20px;

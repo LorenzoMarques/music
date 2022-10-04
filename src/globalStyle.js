@@ -8,10 +8,10 @@ export default createGlobalStyle`
         outline: 0;
     }
     :root {
-        --color-brand1: #1A1A2E;
-        --color-brand2: #16213E;
-        --color-brand3: #0F3460;
-        --color-brand4: #E94560;
+        --color-brand1: #4529E6;
+        --color-brand2: #5126EA;
+        --color-brand3: #B0A6F0;
+        --color-brand4: #EDEAFD;
         --color-grey0: #0B0D0D;
         --color-grey1: #212529;
         --color-grey2: #495057;
@@ -19,7 +19,7 @@ export default createGlobalStyle`
         --color-grey4: #ADB5BD;
         --color-grey5: #CED4DA;
         --color-grey6: #DEE2E6;
-        --color-grey7: #E9ECEF;
+        --color-grey7: #e9ecf5;
         --color-grey8: #F1F3F5;
         --color-grey9: #F8F9FA;
         --color-grey10: #FDFDFD;
@@ -47,16 +47,16 @@ export default createGlobalStyle`
 
     button {
         cursor: pointer;
+
     }
     h3,h2,h1, p, span {
-      color: var(--color-grey5);
     }
     li {
         list-style: none;
     }
     body {
-        background-color: var(--color-brand2);
-
+        background-color: var(--color-grey7);
+        color: var(--color-grey2);
         * {
   scrollbar-width: 12px;
   scrollbar-color: var(--color-brand3) var(--color-brand2);
