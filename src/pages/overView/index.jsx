@@ -9,15 +9,20 @@ import {
 } from "./style";
 import InfiniteScroll from "../../components/infinityScroll/index";
 import { BiLike, BiCommentDetail, BiShare } from "react-icons/bi";
+import { songs } from "../../utils/importsongs";
+import { useNavigate } from "react-router-dom";
 
 const OverView = () => {
   const [page, setPage] = useState(1);
   const [feed, setFeed] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClickSong = (id) => {
+    navigate(`/player/${id}`);
+  };
 
   const loadPage = () => {
-    console.log(page);
-    console.log(loading);
     fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
       .then((res) => res.json())
       .then((res) => setFeed([...feed, ...res.results]))
@@ -31,26 +36,38 @@ const OverView = () => {
 
   return (
     <OverViewContainer>
-      {feed.map((element, i) => (
-        <Post>
+      {songs.map((element, i) => (
+        <Post className={element.id}>
           <UserPost>
-            <img src={element.image} key={i} alt={element.image} />
-            <p>Rick Morty</p>
+            <img
+              src={
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg"
+              }
+              key={i}
+              alt={element.img}
+            />
+            <p>Lorenzo Marques</p>
           </UserPost>
 
           <PostedImage>
-            <img src={element.image} key={i} alt={element.image} />
+            <img
+              src={element.img}
+              key={i}
+              alt={element.img}
+              className={element.id}
+              onClick={(e) => handleClickSong(e.target.className)}
+            />
           </PostedImage>
 
           <PostBar>
             <button>
-              <BiLike size={25} color="white" /> Like
+              <BiLike size={25} color="gray" /> Like
             </button>
             <button>
-              <BiCommentDetail size={25} color="white" /> Comment
+              <BiCommentDetail size={25} color="gray" /> Comment
             </button>
             <button>
-              <BiShare size={25} color="white" /> Share
+              <BiShare size={25} color="gray" /> Share
             </button>
           </PostBar>
         </Post>

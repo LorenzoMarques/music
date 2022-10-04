@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const PlayerContainer = styled.div`
   margin: auto;
-  margin-top: 150px;
-  width: 250px;
+  margin-top: 100px;
+  width: 300px;
+  box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+  padding: 25px;
 `;
 
 export const SongImage = styled.div`
@@ -12,6 +14,9 @@ export const SongImage = styled.div`
   border: 2px solid var(--color-grey6);
   margin-bottom: 10px;
   border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 `;
 
 export const SongNameContainer = styled.div`
@@ -53,11 +58,10 @@ export const Arrow = styled.button`
 `;
 
 export const Ball = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 100%;
   background-color: var(--color-grey5);
-  margin-left: -15px;
 `;
 
 export const TimeContainer = styled.div`
